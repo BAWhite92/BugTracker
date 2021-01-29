@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.bugtracker.main.BugTrackerView">
+  <grid id="27dc6" binding="bugTrackingWelcome" layout-manager="CardLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="711" height="855"/>
+    </constraints>
+    <properties>
+      <autoscrolls value="true"/>
+      <background color="-8148840"/>
+      <foreground color="-16777216"/>
+      <maximumSize width="600" height="800"/>
+      <minimumSize width="600" height="800"/>
+      <opaque value="true"/>
+      <preferredSize width="600" height="800"/>
+    </properties>
+    <border type="etched" title="Bug Tracking" title-justification="2" title-position="3">
+      <font name="Fira Code" size="48" style="1"/>
+      <title-color color="-16777216"/>
+    </border>
+    <children>
+      <scrollpane id="4c0d" binding="WelcomeCard">
+        <constraints>
+          <card name="WelcomePage"/>
+        </constraints>
+        <properties>
+          <autoscrolls value="false"/>
+          <focusable value="false"/>
+          <minimumSize width="514" height="123"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="d338" layout-manager="GridBagLayout">
+            <constraints/>
+            <properties>
+              <autoscrolls value="true"/>
+              <background color="-8148840"/>
+              <doubleBuffered value="true"/>
+              <focusable value="false"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="6f960" class="javax.swing.JLabel" binding="PasswordLabel">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.3"/>
+                </constraints>
+                <properties>
+                  <alignmentY value="0.1"/>
+                  <font name="Arial" size="18" style="1"/>
+                  <foreground color="-16777216"/>
+                  <text value="Password"/>
+                </properties>
+              </component>
+              <vspacer id="616bc">
+                <constraints>
+                  <grid row="3" column="1" row-span="5" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="2.0"/>
+                </constraints>
+              </vspacer>
+              <component id="5df64" class="javax.swing.JLabel" binding="Usernamelabel">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.3"/>
+                </constraints>
+                <properties>
+                  <alignmentY value="0.1"/>
+                  <font name="Arial" size="18" style="1"/>
+                  <foreground color="-16777216"/>
+                  <text value="Username"/>
+                </properties>
+              </component>
+              <component id="82492" class="javax.swing.JTextField" binding="UsernameText">
+                <constraints>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <gridbag weightx="1.0" weighty="0.3"/>
+                </constraints>
+                <properties/>
+              </component>
+              <hspacer id="23a93">
+                <constraints>
+                  <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.5" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <vspacer id="158a2">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="2.0" weighty="2.0"/>
+                </constraints>
+              </vspacer>
+              <component id="1da52" class="javax.swing.JPasswordField" binding="PasswordText">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <gridbag weightx="1.0" weighty="0.5"/>
+                </constraints>
+                <properties/>
+              </component>
+              <hspacer id="579a">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.7" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <component id="16d15" class="javax.swing.JButton" binding="registerButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0" ipady="5"/>
+                </constraints>
+                <properties>
+                  <text value="Register"/>
+                </properties>
+              </component>
+              <vspacer id="4b4e5">
+                <constraints>
+                  <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="1.8"/>
+                </constraints>
+              </vspacer>
+              <component id="4ea82" class="javax.swing.JButton" binding="LogInButton">
+                <constraints>
+                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="4.0" weighty="0.2" ipady="5"/>
+                </constraints>
+                <properties>
+                  <alignmentY value="1.0"/>
+                  <margin top="0" left="0" bottom="0" right="0"/>
+                  <text value="Log In"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+      <scrollpane id="313cc" binding="SearchCard">
+        <constraints>
+          <card name="Search"/>
+        </constraints>
+        <properties>
+          <background color="-8148840"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="379" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints/>
+            <properties>
+              <background color="-8148840"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="5ff72" class="javax.swing.JButton" binding="SolvedBugSearch">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="SolvedBugSearch"/>
+                  <text value="Search for resolved Bug Tickets"/>
+                </properties>
+              </component>
+              <component id="d1f5e" class="javax.swing.JButton" binding="createANewBugButton" default-binding="true">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Create a new Bug Ticket"/>
+                </properties>
+              </component>
+              <component id="56aa5" class="javax.swing.JButton" binding="BeingFixedSearchButton">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="BeingFixedSearchButton"/>
+                  <text value="Search for Bug Tickets currently under development"/>
+                </properties>
+              </component>
+              <component id="98b64" class="javax.swing.JButton" binding="BugToFixSearchButton">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="BugToFixSearchButton"/>
+                  <text value="Search for current outstanding Bug Tickets"/>
+                </properties>
+              </component>
+              <component id="2ac7f" class="javax.swing.JButton" binding="SettingsButton">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="SettingsButton"/>
+                  <text value="Settings"/>
+                </properties>
+              </component>
+              <component id="de8d0" class="javax.swing.JTextArea" binding="WelcomeTextArea">
+                <constraints>
+                  <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="50"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <focusable value="false"/>
+                  <lineWrap value="true"/>
+                  <margin top="5" left="5" bottom="5" right="5"/>
+                  <text value="Welcome to Bug Tracking v1.0! Please select from the options below to search for the required &quot;Bug Tickets&quot;. Use the settings to assign priority weights and customise your ticket ordering. "/>
+                  <wrapStyleWord value="true"/>
+                </properties>
+              </component>
+              <component id="6a7e" class="javax.swing.JButton" binding="LogOutButton">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="LogOutButton"/>
+                  <text value="Log Out"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+      <scrollpane id="d0147" binding="CurrentBugSearchCard">
+        <constraints>
+          <card name="CurrentBugSearch"/>
+        </constraints>
+        <properties>
+          <name value="CurrentBugSearchCard"/>
+        </properties>
+        <border type="none" title="">
+          <font style="1"/>
+        </border>
+        <children>
+          <grid id="d1214" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="5bc64" class="javax.swing.JButton" binding="HomeButtonCurrent">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="HomeButton"/>
+                  <text value="Home"/>
+                </properties>
+              </component>
+              <scrollpane id="b40bb">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="779b6" class="javax.swing.JTable" binding="CurrentBugTable">
+                    <constraints/>
+                    <properties>
+                      <cellSelectionEnabled value="true"/>
+                      <fillsViewportHeight value="true"/>
+                      <focusable value="false"/>
+                      <name value="CurrentBugTable"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="26b49" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="1"/>
+                  <text value="Current Bug Tickets Awaiting Resolution"/>
+                </properties>
+              </component>
+              <component id="f3283" class="javax.swing.JButton" binding="CurrentBugRefresh">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Refresh Page"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+      <scrollpane id="528f4" binding="PastBugSearchCard">
+        <constraints>
+          <card name="PastBugSearch"/>
+        </constraints>
+        <properties>
+          <name value="PastBugSearchCard"/>
+        </properties>
+        <border type="none" title="">
+          <font style="1"/>
+        </border>
+        <children>
+          <grid id="b5bf0" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="120bb" class="javax.swing.JButton" binding="HomeButtonPast">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Home"/>
+                </properties>
+              </component>
+              <component id="c7093" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="1"/>
+                  <text value="Resolved Bug Tickets History"/>
+                </properties>
+              </component>
+              <scrollpane id="66ba3">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="eb3dc" class="javax.swing.JTable" binding="PastBugsTable">
+                    <constraints/>
+                    <properties>
+                      <inheritsPopupMenu value="true"/>
+                      <name value="PastBugsTable"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="f7fbb" class="javax.swing.JButton" binding="PastBugRefresh">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Refresh Page"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+      <scrollpane id="90dec" binding="InProgressSearchCard">
+        <constraints>
+          <card name="InProgressSearch"/>
+        </constraints>
+        <properties>
+          <name value="InProgressSearchCard"/>
+        </properties>
+        <border type="none" title="">
+          <font style="1"/>
+        </border>
+        <children>
+          <grid id="bdada" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="18924" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="1"/>
+                  <text value="Bug Tickets Currently Being Resolved"/>
+                </properties>
+              </component>
+              <scrollpane id="82839">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="e41ac" class="javax.swing.JTable" binding="InProgressTable">
+                    <constraints/>
+                    <properties>
+                      <cellSelectionEnabled value="true"/>
+                      <fillsViewportHeight value="true"/>
+                      <focusable value="false"/>
+                      <name value="InProgressTable"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="4690f" class="javax.swing.JButton" binding="CurrentHomeButton">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Home"/>
+                </properties>
+              </component>
+              <component id="cc4a5" class="javax.swing.JButton" binding="InProgressRefresh">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Refresh Page"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+      <scrollpane id="facf8" binding="SettingsCard">
+        <constraints>
+          <card name="Settings"/>
+        </constraints>
+        <properties>
+          <name value="SettingsCard"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="10359" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints/>
+            <properties>
+              <background color="-8148840"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <vspacer id="931c1">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <component id="d9e37" class="javax.swing.JTextArea" binding="selectATimeScaleTextArea" default-binding="true">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="2" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="50"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <lineWrap value="true"/>
+                  <margin top="5" left="5" bottom="5" right="5"/>
+                  <name value="SelectsTimeScaleTextArea"/>
+                  <requestFocusEnabled value="false"/>
+                  <text value=""/>
+                  <wrapStyleWord value="true"/>
+                </properties>
+              </component>
+              <component id="e23b3" class="javax.swing.JTextField" binding="settingsTextField" default-binding="true">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font size="20" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <text value="Settings"/>
+                </properties>
+              </component>
+              <component id="a9f9f" class="javax.swing.JButton" binding="SettingsHomeButton">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Home"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+      <scrollpane id="6f7ba" binding="CreateATicketCard">
+        <constraints>
+          <card name="Card1"/>
+        </constraints>
+        <properties>
+          <name value="CreateATicketCard"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="e94d6" layout-manager="GridLayoutManager" row-count="8" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints/>
+            <properties>
+              <background color="-8148840"/>
+              <font size="14" style="0"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="3daaf" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="20" style="1"/>
+                  <foreground color="-12828863"/>
+                  <horizontalAlignment value="0"/>
+                  <text value="Create a Bug Ticket:"/>
+                </properties>
+              </component>
+              <component id="2d382" class="javax.swing.JLabel" binding="CreateTitleLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="14" style="0"/>
+                  <foreground color="-12828863"/>
+                  <inheritsPopupMenu value="true"/>
+                  <labelFor value="459be"/>
+                  <name value="CreateTitleLabel"/>
+                  <text value="Title of Issue:"/>
+                </properties>
+              </component>
+              <component id="459be" class="javax.swing.JTextField" binding="CreateTitleText">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <name value="CreateTitleText"/>
+                </properties>
+              </component>
+              <component id="5f50b" class="javax.swing.JTextField" binding="CreateLangText">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <name value="CreateLangText"/>
+                </properties>
+              </component>
+              <component id="a8ff2" class="javax.swing.JLabel" binding="CreateLangLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="14" style="0"/>
+                  <foreground color="-12828863"/>
+                  <labelFor value="5f50b"/>
+                  <name value="CreateLangLabel"/>
+                  <text value="Coding Language:"/>
+                </properties>
+              </component>
+              <component id="fb90a" class="javax.swing.JComboBox" binding="CreatePrioText">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="Aesthetic (Minimal)"/>
+                    <item value="Low"/>
+                    <item value="Medium"/>
+                    <item value="High"/>
+                    <item value="Very High"/>
+                    <item value="Critical"/>
+                  </model>
+                  <name value="CreatePrioText"/>
+                </properties>
+              </component>
+              <component id="6b1ec" class="javax.swing.JLabel" binding="CreatePrioLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="14" style="0"/>
+                  <foreground color="-12828863"/>
+                  <labelFor value="fb90a"/>
+                  <name value="CreatePrioLabel"/>
+                  <text value="Priority:"/>
+                </properties>
+              </component>
+              <component id="5fe4c" class="javax.swing.JLabel" binding="CreateDescrLabel">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="14" style="0"/>
+                  <foreground color="-12828863"/>
+                  <labelFor value="ccf6c"/>
+                  <name value="CreateDescrLabel"/>
+                  <text value="Description of Issue:"/>
+                </properties>
+              </component>
+              <component id="f4999" class="javax.swing.JTextField" binding="CreateFileLocText">
+                <constraints>
+                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <name value="CreateFileLocText"/>
+                </properties>
+              </component>
+              <component id="97786" class="javax.swing.JLabel" binding="CreateFileLocLabel">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="14" style="0"/>
+                  <foreground color="-12828863"/>
+                  <labelFor value="f4999"/>
+                  <name value="CreateFileLocLabel"/>
+                  <text value="File error occured in:"/>
+                </properties>
+              </component>
+              <component id="7bf04" class="javax.swing.JButton" binding="createTicketButton" default-binding="true">
+                <constraints>
+                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Create Ticket "/>
+                </properties>
+              </component>
+              <component id="19b16" class="javax.swing.JButton" binding="TicketHomeButton">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Home"/>
+                </properties>
+              </component>
+              <scrollpane id="99528">
+                <constraints>
+                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="ccf6c" class="javax.swing.JTextArea" binding="CreateDescrText">
+                    <constraints/>
+                    <properties>
+                      <editable value="true"/>
+                      <lineWrap value="true"/>
+                      <margin top="5" left="5" bottom="5" right="5"/>
+                      <name value="CreateDescrText"/>
+                      <requestFocusEnabled value="false"/>
+                      <text value=""/>
+                      <toolTipText value="Describe the step you took that led to the issue as well as what the issue was and did/caused."/>
+                      <verifyInputWhenFocusTarget value="false"/>
+                      <wrapStyleWord value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+    </children>
+  </grid>
+  <inspectionSuppressions>
+    <suppress inspection="NoLabelFor"/>
+  </inspectionSuppressions>
+</form>
