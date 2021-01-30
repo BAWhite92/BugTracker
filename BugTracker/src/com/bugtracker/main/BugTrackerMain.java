@@ -3,7 +3,6 @@ package com.bugtracker.main;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Vector;
 
@@ -13,6 +12,43 @@ public class BugTrackerMain {
     private static Connection connect = null;
     private static Statement statement = null;
 
+    public static boolean logIn() throws SQLException {
+        return true;
+    }
+
+    public static boolean registerUser(String name, String user, char[] pass) throws SQLException {
+        return true;
+    }
+
+    public static boolean registerAdmin(String name, String user, char[] pass) throws SQLException {
+        preparedStatement = connect.prepareStatement("INSERT INTO accounts (username, password, auth, name)" +
+                " VALUES (?, ?, ?, ?");
+        preparedStatement.setString(1, user);
+        //preparedStatement.setString(2, pass);
+        preparedStatement.setInt(3, 1);
+        preparedStatement.setString(4, name);
+        preparedStatement.executeUpdate();
+
+        return false;
+    }
+
+    public static boolean adminCheck() throws SQLException {
+        preparedStatement = connect.prepareStatement("SELECT * FROM accounts");
+        ResultSet exist = preparedStatement.executeQuery();
+        if(exist.next()){
+            return true;
+        }
+        return false;
+    }
+
+    public static void adminPassInit(char[] password) {
+        //securely create password for admin registration and save it to database table specifically for it.
+    }
+
+    public static boolean adminPassCheck(char[] password) {
+        //check the admin password provided against saved password and if correct allow access.
+        return false;
+    }
 
     public static DefaultTableModel getTableData(ResultSet data){
         //create vector for column names
@@ -45,53 +81,46 @@ public class BugTrackerMain {
 
     public static DefaultTableModel getCurrentBugs(){
            try{
-               MySQLAccess();
                preparedStatement = connect.prepareStatement("SELECT * FROM current_bugs");
                data = preparedStatement.executeQuery();
            }
            catch (SQLException throwables) {
                throwables.printStackTrace();
            }
-           close();
            return getTableData(data);
     }
 
     public static DefaultTableModel getInProgress() {
         try{
-            MySQLAccess();
             preparedStatement = connect.prepareStatement("SELECT * FROM in_progress");
             data = preparedStatement.executeQuery();
         }
         catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        close();
         return getTableData(data);
     }
 
     public static TableModel getPastBugs() {
         try{
-            MySQLAccess();
             preparedStatement = connect.prepareStatement("SELECT * FROM past_bugs");
             data = preparedStatement.executeQuery();
         }
         catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        close();
         return getTableData(data);
     }
 
     public static String addTicket(String title, String lang, String prio, String desc, String file, String date) {
         String success = "Not able to add this ticket, please check the provided information and retry";
         try{
-            MySQLAccess();
             if(alreadyPresent(title)){
-                success.replace("false", "There is already a ticket with this title, " +
-                        "please choose another");
+                success = success.replace("Not able to add this ticket, please check the provided information and retry",
+                        "There is already a ticket with this title, please choose another");
                 return success;
             }
-            preparedStatement = connect.prepareStatement("INSERT INTO current_bugs VALUES(?,?,?,?,?,?");
+            preparedStatement = connect.prepareStatement("INSERT INTO current_bugs VALUES (?,?,?,?,?,?)");
             preparedStatement.setString(1, title);
             preparedStatement.setString(2, lang);
             preparedStatement.setString(3, prio);
@@ -100,7 +129,7 @@ public class BugTrackerMain {
             preparedStatement.setString(6, date);
             int count = preparedStatement.executeUpdate();
             if(count>0) {
-                success.replace("Not able to add this ticket, please check the provided information and retry",
+                success = success.replace("Not able to add this ticket, please check the provided information and retry",
                         "Ticket added successfully");
             }
         }
@@ -112,40 +141,28 @@ public class BugTrackerMain {
 
     private static boolean alreadyPresent(String title) {
         try{
-            MySQLAccess();
-            preparedStatement = connect.prepareStatement("SELECT 1 FROM current_bugs WHERE" +
-                    "Title = ?");
+            preparedStatement = connect.prepareStatement("SELECT * FROM current_bugs WHERE " +
+                    "title = ?");
             preparedStatement.setString(1, title);
             ResultSet exist = preparedStatement.executeQuery();
             if(exist.next()){
-                return false;
+                return true;
             }
         }
         catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return true;
+        return false;
 
     }
 
     //Helper Methods
-    public static void close(){
-           try{
-               data.close();
-               statement.close();
-               connect.close();
-           }
-           catch (SQLException throwables) {
-               throwables.printStackTrace();
-           }
-    }
-
 
     //TO BE ADJUSTED BY ADMIN BEFORE DEPLOYMENT WITH CORRECT INFORMATION for getConnection and username/password
     public static final void MySQLAccess() throws SQLException {
         Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        //connectionProps.put("password", password);
+        connectionProps.put("user", "");
+        connectionProps.put("password", "");
 
         connect = DriverManager.getConnection(
                     "jdbc:" + "mysql" + "://" +
@@ -156,9 +173,9 @@ public class BugTrackerMain {
         System.out.println("Connected to database");
     }
 
-    public static boolean logIn() throws SQLException {
-        MySQLAccess();
-        return true;
+
+    public static void closeConn() throws SQLException {
+        connect.close();
     }
 }
 

@@ -459,7 +459,9 @@
                   </grid>
                 </constraints>
                 <properties>
+                  <background color="-8148840"/>
                   <font size="20" style="1"/>
+                  <foreground color="-16777216"/>
                   <horizontalAlignment value="0"/>
                   <text value="Settings"/>
                 </properties>
@@ -632,17 +634,20 @@
                 <constraints>
                   <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <autoscrolls value="true"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="ccf6c" class="javax.swing.JTextArea" binding="CreateDescrText">
                     <constraints/>
                     <properties>
+                      <autoscrolls value="true"/>
                       <editable value="true"/>
                       <lineWrap value="true"/>
                       <margin top="5" left="5" bottom="5" right="5"/>
                       <name value="CreateDescrText"/>
-                      <requestFocusEnabled value="false"/>
+                      <requestFocusEnabled value="true"/>
                       <text value=""/>
                       <toolTipText value="Describe the step you took that led to the issue as well as what the issue was and did/caused."/>
                       <verifyInputWhenFocusTarget value="false"/>
@@ -651,6 +656,124 @@
                   </component>
                 </children>
               </scrollpane>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+      <scrollpane id="2373a" binding="RegisterCard">
+        <constraints>
+          <card name="Card2"/>
+        </constraints>
+        <properties>
+          <background color="-8148840"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="79050" layout-manager="GridLayoutManager" row-count="6" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints/>
+            <properties>
+              <background color="-8148840"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="25539" class="javax.swing.JLabel" binding="RegisterNameLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Name"/>
+                </properties>
+              </component>
+              <component id="afde1" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Username"/>
+                </properties>
+              </component>
+              <component id="51cd6" class="javax.swing.JTextField" binding="RegUsernameText">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="27112" class="javax.swing.JTextField" binding="RegNameText">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="a0140" class="javax.swing.JPasswordField" binding="RegPasswordText">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="e5cde" class="javax.swing.JComboBox" binding="RegAuthText">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="Developer (Default)"/>
+                    <item value="Administrator"/>
+                  </model>
+                </properties>
+              </component>
+              <component id="616ad" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Password"/>
+                </properties>
+              </component>
+              <component id="2cd32" class="javax.swing.JButton" binding="RegAddUserButton">
+                <constraints>
+                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Submit"/>
+                </properties>
+              </component>
+              <component id="8151e" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Auth Level"/>
+                </properties>
+              </component>
+              <component id="a97a6" class="javax.swing.JTextField" binding="RegisterHeading">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-8148840"/>
+                  <font size="20" style="1"/>
+                  <foreground color="-16777216"/>
+                  <horizontalAlignment value="0"/>
+                  <text value="Register Your Account"/>
+                </properties>
+              </component>
+              <component id="c811a" class="javax.swing.JButton" binding="RegHomeButton">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Home"/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>

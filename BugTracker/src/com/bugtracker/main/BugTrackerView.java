@@ -6,8 +6,11 @@ import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,6 +63,15 @@ public class BugTrackerView {
     private JButton PastBugRefresh;
     private JButton InProgressRefresh;
     private JButton registerButton;
+    private JScrollPane RegisterCard;
+    private JTextField RegisterHeading;
+    private JTextField RegNameText;
+    private JLabel RegisterNameLabel;
+    private JTextField RegUsernameText;
+    private JPasswordField RegPasswordText;
+    private JComboBox RegAuthText;
+    private JButton RegAddUserButton;
+    private JButton RegHomeButton;
     private JButton SavePriorityButton;
 
     BugTrackerContr btc = new BugTrackerContr();
@@ -85,10 +97,73 @@ public class BugTrackerView {
             }
         });
 
-        registerButton.addActionListener(new ActionListener() {
+        RegAddUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                String name = RegNameText.getText();
+                char[] pass = RegPasswordText.getPassword();
+                String user = RegUsernameText.getText();
+                String auth = RegAuthText.getSelectedItem().toString();
+
+                try {
+                    if(auth == "Administrator"){
+                        String checkNew = "Create";
+                        boolean firstAdmin = true;
+                        //Is there already an admin for the system
+                        if (BugTrackerContr.adminCheck()){
+                            checkNew.replace("Create", "Enter");
+                            firstAdmin = false;
+                        }
+
+                        //create the admin password entry box
+                        JPanel panel = new JPanel();
+                        JLabel label = new JLabel(checkNew + " an admin password:");
+                        JPasswordField passw = new JPasswordField();
+                        panel.add(label);
+                        panel.add(passw);
+                        String[] options = new String[]{"OK", "Cancel"};
+                        int option = JOptionPane.showOptionDialog(null, panel, "Admin Password",
+                                JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[1]);
+
+                        //act based on if password is correct and addition successful
+                        if(option == 0) {
+                            char[] password = passw.getPassword();
+                            if (firstAdmin == true) {
+                                BugTrackerContr.addFirstAdmin(password);
+                                if (btc.registerAdmin(name, user, pass)) {
+                                    JOptionPane.showMessageDialog(null, "First admin added " +
+                                            "successfully");
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Issue adding admin " +
+                                            "please try again");
+                                }
+                            } else {
+                                if (BugTrackerContr.adminPasswordCheck(password)) {
+                                    if (btc.registerAdmin(name, user, pass)) {
+                                        JOptionPane.showMessageDialog(null, "Admin added " +
+                                                "successfully");
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "Issue adding " +
+                                                "admin please try again");
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    else{
+                        if(btc.registerUser(name, user, pass)){
+                            JOptionPane.showConfirmDialog(null,"User added successfully");
+                        }
+                        else{
+                            JOptionPane.showConfirmDialog(null, "Issue adding account please " +
+                                    "try again");
+                        }
+                    }
+                }
+                catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         });
 
@@ -102,6 +177,7 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -115,6 +191,7 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(true);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -130,6 +207,7 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -145,6 +223,7 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(true);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -160,6 +239,7 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -173,6 +253,21 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(true);
+                RegisterCard.setVisible(false);
+            }
+        });
+
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                WelcomeCard.setVisible(false);
+                SearchCard.setVisible(false);
+                CurrentBugSearchCard.setVisible(false);
+                PastBugSearchCard.setVisible(false);
+                InProgressSearchCard.setVisible(false);
+                SettingsCard.setVisible(false);
+                CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(true);
             }
         });
 
@@ -186,6 +281,7 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -199,6 +295,7 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -212,6 +309,7 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -225,6 +323,7 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -238,6 +337,21 @@ public class BugTrackerView {
                 InProgressSearchCard.setVisible(false);
                 SettingsCard.setVisible(false);
                 CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
+            }
+        });
+
+        RegHomeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                WelcomeCard.setVisible(true);
+                SearchCard.setVisible(false);
+                CurrentBugSearchCard.setVisible(false);
+                PastBugSearchCard.setVisible(false);
+                InProgressSearchCard.setVisible(false);
+                SettingsCard.setVisible(false);
+                CreateATicketCard.setVisible(false);
+                RegisterCard.setVisible(false);
             }
         });
 
@@ -255,7 +369,7 @@ public class BugTrackerView {
                 else {
                     file = CreateFileLocText.getText();
                 }
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date = sdf.format(new Date());
 
                 int res = JOptionPane.showConfirmDialog(null, "Confirm addition of " +
@@ -263,6 +377,13 @@ public class BugTrackerView {
                 if(res == 0) {
                     String added = btc.addTicket(title, lang, prio, desc, file, date);
                     JOptionPane.showMessageDialog(null, added);
+                    if(added.contains("Ticket added successfully")){
+                        CreateTitleText.setText("");
+                        CreateLangText.setText("");
+                        CreatePrioText.setSelectedIndex(0);
+                        CreateDescrText.setText("");
+                        CreateFileLocText.setText("");
+                    }
                 }
             }
         });
@@ -299,12 +420,28 @@ public class BugTrackerView {
 
 
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws SQLException {
         JFrame frame = new JFrame("Bug Tracker");
         frame.setContentPane(new BugTrackerView().bugTrackingWelcome);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                try {
+                    BugTrackerContr.closeConn();
+                    System.out.println("Connect closed");
+                }
+                catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        });
+
+        BugTrackerContr.MySQLAccess();
     }
 
 }
