@@ -3,6 +3,7 @@ package com.bugtracker.main;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class BugTrackerContr {
 
@@ -31,8 +32,8 @@ public class BugTrackerContr {
         BugTrackerMain.closeConn();
     }
 
-    public static boolean adminCheck() throws SQLException {
-        return BugTrackerMain.adminCheck();
+    public static boolean adminExistsCheck() throws SQLException {
+        return BugTrackerMain.adminExistsCheck();
     }
 
     public static void addFirstAdmin(char[] password) {
@@ -43,14 +44,18 @@ public class BugTrackerContr {
         return BugTrackerMain.adminPassCheck(password);
     }
 
-    public boolean logIn(String name, char[] password) {
+    public static boolean logIn(String name, char[] password) {
         try {
-            return BugTrackerMain.logIn();
+            return BugTrackerMain.logIn(name, password);
         }
         catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return false;
+    }
+
+    public static ArrayList<String> getInfo(String name) {
+        return BugTrackerMain.getInfo(name);
     }
 
     public boolean registerAdmin(String name, String user, char[] pass) throws SQLException {
@@ -64,5 +69,32 @@ public class BugTrackerContr {
     public String addTicket(String title, String lang, String prio, String desc, String file, String date) {
         return BugTrackerMain.addTicket(title, lang, prio, desc, file, date);
     }
+
+    public static boolean updateTicketFixing(String title, String user) {
+        return BugTrackerMain.setTicketFixing(title, user);
+    }
+
+    public static boolean updateTicket(String prio, String desc, String lang, String loc) throws SQLException {
+        return BugTrackerMain.updateTicket(prio, desc, lang, loc);
+    }
+
+    public static boolean updateInProgressTicket(String prio, String desc, String lang,
+                                                 String loc, String fix) throws SQLException {
+        return BugTrackerMain.updateInProgressTicket(prio, desc, lang, loc, fix);
+    }
+
+    public static boolean removeTicket(String title, String table) throws SQLException {
+        return BugTrackerMain.removeTicket(title, table);
+    }
+
+    public static String getFixer(String title, String table) throws SQLException {
+        return BugTrackerMain.getFixer(title, table);
+
+    }
+
+    public static boolean markAsComplete(String title) throws SQLException {
+        return BugTrackerMain.markCompleted(title);
+    }
+
 
 }
