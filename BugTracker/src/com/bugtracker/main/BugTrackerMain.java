@@ -463,8 +463,8 @@ public class BugTrackerMain {
     //TO BE ADJUSTED BY ADMIN BEFORE DEPLOYMENT WITH CORRECT INFORMATION for getConnection and username/password
     public static final void MySQLAccess() throws SQLException {
         Properties connectionProps = new Properties();
-        connectionProps.put("user", "baw");
-        connectionProps.put("password", "Eairnon14");
+        connectionProps.put("user", "");
+        connectionProps.put("password", "");
 
         connect = DriverManager.getConnection(
                     "jdbc:" + "mysql" + "://" +
