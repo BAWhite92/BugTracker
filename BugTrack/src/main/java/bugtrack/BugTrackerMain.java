@@ -464,7 +464,7 @@ public class BugTrackerMain {
     public static final void MySQLAccess() throws SQLException, ClassNotFoundException {
         Properties connectionProps = new Properties();
         connectionProps.put("user", "baw");
-        connectionProps.put("password", "Eairnon14");
+        connectionProps.put("password", "");
 
         connect = DriverManager.getConnection(
                     "jdbc:" + "mysql" + "://" +
